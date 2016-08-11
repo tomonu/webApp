@@ -1,0 +1,16 @@
+<div>
+  <%= form_tag('/lyrics', method: :post) do %>
+    <p>
+      <input placeholder="Lyric" type="text" name="lyric">
+      <input placeholder="Title" type="text" name="title">
+      <input placeholder="Artist" type="text" name="artist">
+      <p>
+        <input type="radio" name="sex" value="0">men
+        <input type="radio" name="sex" value="1">women
+        <input type="radio" name="sex" value="2">other
+      </p>
+      <input placeholder="Genre" type="text" name="genre">
+    </p>
+    <input type="submit" value="SENT">
+  <% end %>
+</div>

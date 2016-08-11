@@ -1,0 +1,46 @@
+<header class="header">
+  <div class="header_item">
+    <button class="btn1" type=button onclick="addLyric();">
+      btn1
+    </button>
+    <button class="btn2" type=button onclick="showRanking();">
+    Ranking
+    </button>
+    <button class="btn3" type=button onclick="nextLyric();">
+    Next
+    </button>
+    <% if user_signed_in? %>
+      <div class="user_nav grid-6">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <a class="post" href="/lyrics/add">投稿する</a>
+      </div>
+    <% else %>
+      <div class="grid-6">
+        <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+        <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+      </div>
+    <% end %>
+  </div>
+</header>
+
+<div class="lyricArea">
+  <div id="dBox" class="detailBox detailFont">
+    <%= image_tag("close.png", :class => "detailClose") %>
+    <div class="detail_lyric"><div></div></div>
+    <table>
+      <tr><td class="detail_item" >Title</td><td class="detail_split">:</td><td id="title"></td></tr>
+      <tr><td class="detail_item" >Artist</td><td class="detail_split">:</td><td id="artist"></td></tr>
+      <tr><td class="detail_item" >Point</td><td class="detail_split">:</td><td id="point"></td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="rankingArea font">
+  <%= image_tag("close.png", :class => "rankingClose") %>
+  <h3 style="font-size:36px;color:#ffffff;">Ranking</h3>
+  <ul style="color:#ffffff;text-align:left;list-style:none;">
+  </ul>
+
+</div>
+
+<span id="ruler" style="font-family:'Meiryo';visibility:hidden;position:absolute;white-space:nowrap;"></span>
